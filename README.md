@@ -4,8 +4,8 @@
 
 ## Introduction
 
+Referring Video Object Segmentation (RVOS) requires segmenting the object in video referred by a natural language query. Existing methods mainly rely on sophisticated pipelines to tackle such cross-modal task, and do not explicitly model the object-level spatial context which plays an important role in locating the referred object. Therefore, we propose an end-to-end RVOS framework completely built upon transformers, termed Fully Transformer-Equipped Architecture (FTEA), which treats the RVOS task as a mask sequence learning problem and regards all the objects in video as candidate objects. Given a video clip with a text query, the visual–textual features are yielded by encoder, while the corresponding pixel-level and word-level features are aligned in terms of semantic similarity. To capture the object-level spatial context, we have developed the Stacked Transformer, which individually characterizes the visual appearance of each candidate object, whose feature map is decoded to the binary mask sequence in order directly. Finally, the model finds the best matching between mask sequence and text query. In addition, to diversify the generated masks for candidate objects, we impose a diversity loss on the model for capturing more accurate mask of the referred object.
 
-In order to address the task of video object segmentation based on reference sentences, this paper introduces the first RVOS (Reference-based Video Object Segmentation) model entirely built upon Transformers. This model is capable of distinguishing target regions in videos at the pixel level when provided with natural language instructions. To achieve this, the paper proposes a Stacked Transformer module that decodes visual feature maps into multiple candidate target masks, facilitating context learning and decoding at the candidate target level. Additionally, to ensure that the segmentation process accurately identifies all candidate targets, a diversity loss for dynamic convolution kernels during candidate target generation is introduced.
 <p align="center">
 <img src="figs/FTEA.png" width="1000px">
 </p>
@@ -175,4 +175,4 @@ If you find this repo useful, please cite the following paper.
 If you have any questions, please contact Mr. Zhang Yu via email at zycs@hdu.edu.cn.
 
 ## Acknowledgement
-We would like to thank the authors of [MTTR](https://github.com/mttr2021/MTTR)which have significantly accelerated the development of our FTEA model.
+We would like to thank the authors of [MTTR](https://github.com/mttr2021/MTTR) which has significantly accelerated the development of our FTEA model.
